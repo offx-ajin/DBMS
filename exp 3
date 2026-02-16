@@ -1,0 +1,41 @@
+CREATE TABLE Employee(Emp_id INT PRIMARY KEY, Emp_name VARCHAR(20), Dept VARCHAR(20), Salary INT);
+SELECT * FROM Employee;
+DESC Employee;
+
+INSERT INTO Employee VALUES(101,'David','HR',7000);
+INSERT INTO Employee VALUES(102,'Obama','Marketing',5000);
+INSERT INTO Employee VALUES(103,'Cyra','Production',10000);
+INSERT INTO Employee VALUES(104,'Agneus','Sales',7000);
+
+SELECT * FROM Employee WHERE Salary>7000;
+
+UPDATE Employee SET SALARY=8200 WHERE EMP_NAME='David';
+
+INSERT INTO Employee VALUES(106,'Daniel','Production',6700);
+
+DELETE FROM Employee WHERE Emp_id = 103;
+
+
+SELECT * FROM Employee WHERE Emp_name NOT LIKE 'D%' AND Emp_name NOT LIKE 'O%';
+
+SELECT dept, SUM(salary) AS total_salary FROM bM Employee GROUP BY dept;
+
+UPDATE Employee SET salary = salary + (salary * 0.05) WHERE dept = 'Production';
+
+DELETE FROM Employee WHERE salary < 7000;
+
+SELECT Emp_name, salary FROM Employee WHERE salary = (SELECT MIN(salary) FROM Employee);
+
+UPDATE Employee SET salary = 8200 WHERE dept = 'Marketing';
+
+SELECT Emp_name FROM Employee WHERE Emp_name LIKE 'A%';
+
+
+SELECT Emp_name FROM Employee WHERE Emp_name LIKE '%it%';
+
+SELECT DISTINCT UPPER(dept) AS department FROM Employee;
+
+SELECT * FROM employee WHERE dept LIKE 'M_r%ket%';
+
+SELECT DISTINCT REVERSE(UPPER(dept)) AS reversed_dept FROM employee;
+
